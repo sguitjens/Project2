@@ -32,8 +32,9 @@ $(document).ready(function() {
       });
   }
 
-  loginForm.on("change-page", function(event) {
-    event.preventDefault();
+  $("#index-button").on("click", function() {
+    console.log("INDEX pressed");
+    window.location = "/index";
     //load the "index.handlebars" page; *** HERE ***
   });
 });

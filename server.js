@@ -4,7 +4,7 @@
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
-const exphbs = require("express-handlebars");
+const handlebars = require("express-handlebars");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
@@ -26,7 +26,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Set Handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", handlebars({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Requiring our routes

@@ -12,8 +12,7 @@ module.exports = function(app) {
     }
     // res.sendFile(path.join(__dirname, "../public/signup.html"));
     // had to comment out the above and replace it with this to get it to use handlebars
-    // change back to "index"
-    res.render("login", {});
+    res.render("index", {});
   });
 
   app.get("/login", function(req, res) {
@@ -24,6 +23,11 @@ module.exports = function(app) {
     // res.sendFile(path.join(__dirname, "../public/login.html"));
     res.render("login", {});
   });
+
+  app.get('/index', (req, res) => {
+    // render your contact.handlebars
+    res.render("index", {});
+  })
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
