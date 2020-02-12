@@ -1,4 +1,3 @@
-
 /*eslint prefer-const: "error"*/
 /*eslint-env es6*/
 // Requiring necessary npm packages
@@ -7,7 +6,6 @@ const session = require("express-session");
 const handlebars = require("express-handlebars");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
-
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
