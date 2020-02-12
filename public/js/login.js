@@ -31,4 +31,9 @@ $(document).ready(function() {
         console.log(err);
       });
   }
+
+  loginForm.on("change-page", function(event) {
+    event.preventDefault();
+    //load the "index.handlebars" page; *** HERE ***
+  });
 });

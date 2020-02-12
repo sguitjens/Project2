@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 require("dotenv").config();
 
@@ -11,6 +11,8 @@ const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || "development";
 const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
+
+// QUESTION: why is the database defaulting to dev_database
 
 let sequelize;
 if (config.use_env_variable) {
@@ -31,7 +33,6 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(file => {
-    // const model = sequelize['import'](path.join(__dirname, file));
     const model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
