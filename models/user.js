@@ -26,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     username: {
       type: DataTypes.STRING,
-      allwoNull: false
+      allowNull: false
     }
   });
 
