@@ -6,7 +6,7 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    // load the index page if the user is already logged in, I think
+    // load the index page if the user exists so they can log in
     if (req.user) {
       res.redirect("/index");
     }
@@ -14,12 +14,10 @@ module.exports = function(app) {
   });
 
   app.get("/login", function(req, res) {
-    console.log("REQUEST2", req);
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
     }
-    // res.sendFile(path.join(__dirname, "../public/login.html"));
     res.render("login", {});
   });
 
