@@ -22,15 +22,31 @@
                                 <li class="uk-active"><a href="#">Find</a></li>
                                 <!-- Login target for modal -->
                                 <li class="uk-active"><a href="#" uk-toggle="target: #login-modal">Login</a></li>
-                                
+                                <!-- target for profile off canvas -->
                                 <li>
-                                    <a href="#">Profile</a>
-                                    <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-active"><a href="#">Profile Avatar and Name</a></li>
-                                            <li><a href="#">View Profile</a></li>
-                                            <li><a href="#">Settings</a></li>
-                                            <li><a href="#">Logout</a></li>
+                                        <a uk-toggle="target: #offcanvas-nav-primary">Profile</a>
+                                    <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true; flip: true">
+                                            <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+                                                    <button class="uk-offcanvas-close" type="button" uk-close></button>
+                                        
+                                                <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+                                                    <li class="uk-active"><a href="#">View Profile</a></li>
+
+                                                        <ul class="uk-nav-sub">
+                                                            <li><a href="#">Sub item</a></li>
+                                                            <li><a href="#">Sub item</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="uk-nav-header">Header</li>
+                                                    <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
+                                                    <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                                    <li class="uk-nav-divider"></li>
+                                                    <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Logout</a></li>
+                                                </ul>
+                                        
+                                            </div>
+                                        </div>
+                                        
                                         </ul>
                     </div>
             </nav>
@@ -42,37 +58,103 @@
 
 <!-- MODAL for login -->
 
-<div class="uk-modal-full"id="login-modal" uk-modal="center: true" style="text-align: center">
+<div class="uk-modal"id="login-modal" uk-modal="center: true" style="text-align: center">
         <div class="uk-modal-dialog uk-modal-body ">
         <button class="uk-modal-close-full uk-close-large uk-vertical-align-middle" type="button" uk-close></button>
-            <div class="uk-modal-content" >
-            <h2> Login </h2>
-
-                <div class="uk-align-center" style="width: 20%">
-
-                <img class="uk-margin-bottom" width="140" height="120" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjQsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkViZW5lXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTQwcHgiIGhlaWdodD0iMTIwcHgiIHZpZXdCb3g9Ii0yOS41IDI3NS41IDE0MCAxMjAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgLTI5LjUgMjc1LjUgMTQwIDEyMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8ZyBvcGFjaXR5PSIwLjciPg0KCTxwYXRoIGZpbGw9IiNEOEQ4RDgiIGQ9Ik0tNi4zMzMsMjk4LjY1NHY3My42OTFoOTMuNjY3di03My42OTFILTYuMzMzeiBNNzkuNzg4LDM2NC4zNTVIMS42NTZ2LTU3LjcwOWg3OC4xMzJWMzY0LjM1NXoiLz4NCgk8cG9seWdvbiBmaWxsPSIjRDhEOEQ4IiBwb2ludHM9IjUuODYsMzU4LjE0MSAyMS45NjIsMzQxLjIxNiAyNy45OTUsMzQzLjgyNyA0Ny4wMzIsMzIzLjU2MSA1NC41MjQsMzMyLjUyMyA1Ny45MDUsMzMwLjQ4IA0KCQk3Ni4yMDMsMzU4LjE0MSAJIi8+DQoJPGNpcmNsZSBmaWxsPSIjRDhEOEQ4IiBjeD0iMjQuNDYyIiBjeT0iMzIxLjMyMSIgcj0iNy4wMzQiLz4NCjwvZz4NCjwvc3ZnPg0K" alt="">
-        
-                    <form class="uk-panel uk-panel-box uk-form">
-                        <div class="uk-form-row uk-margin-bottom">
-                            <input class="uk-width-1-1 uk-form-large uk-border-pill" type="text" placeholder="Username">
+        <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
+                <div class="uk-width-1-1">
+                    <div class="uk-container">
+                        <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+                            <div class="uk-width-1-1@m">
+                                <form class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+                                    <ul class="uk-tab uk-flex-center" uk-grid uk-switcher="animation: uk-animation-fade">
+                                        <li><a href="#">Sign Up</a></li>
+                                        <li><a href="#">Log In</a></li>
+                                        <li class="uk-hidden">Forgot Password?</li>
+                                    </ul>
+                                    <ul class="uk-switcher uk-margin">
+                                        <li>
+                                            <h3 class="uk-card-title uk-text-center">Sign up!</h3>
+                                            <form>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                                        <input class="uk-input uk-form-large" type="text" placeholder="First and last name">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                        <input class="uk-input uk-form-large" type="text" placeholder="Email address">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                        <input class="uk-input uk-form-large" type="password" placeholder="Set a password">	
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                                                    <label><input class="uk-checkbox" type="checkbox"> I agree the Terms and Conditions.</label>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
+                                                </div>
+                                                <div class="uk-text-small uk-text-center">
+                                                    Already have an account? <a href="#" uk-switcher-item="1">Log in</a>
+                                                </div>
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <h3 class="uk-card-title uk-text-center">Welcome back!</h3>
+                                            <form>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                        <input class="uk-input uk-form-large" type="text" placeholder="Email address">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                        <input class="uk-input uk-form-large" type="password" placeholder="Password">	
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin uk-text-right@s uk-text-center uk-text-small">
+                                                    <a href="#" uk-switcher-item="2">Forgot Password?</a>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Login</button>
+                                                </div>
+                                                <div class="uk-text-small uk-text-center">
+                                                    Not registered? <a href="#" uk-switcher-item="0">Create an account</a>
+                                                </div>
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <h3 class="uk-card-title uk-text-center">Forgot your password?</h3>
+                                            <p class="uk-text-center uk-width-medium@s uk-margin-auto">Enter your email address and we will send you a link to reset your password.</p>
+                                            <form>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                        <input class="uk-input uk-form-large" type="text" placeholder="Email address">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Send Email</button>
+                                                </div>
+                                                <div class="uk-text-small uk-text-center">
+                                                    <a href="#" uk-switcher-item="1">Back to login</a>
+                                                </div>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="uk-form-row uk-margin-bottom">
-                            <input class="uk-width-1-1 uk-form-large uk-border-pill" type="text" placeholder="Password">
-                        </div>
-                        <div class="uk-form-row uk-margin-bottom">
-                        <a class="uk-width-1-1 uk-button uk-button-primary uk-button-large uk-border-pill" href="#">Login</a>
-                        </div>
-                        <div class="uk-form-row uk-text-small">
-                            <label class="uk-float-left"><input type="checkbox"> Remember Me</label>
-                            <a class="uk-float-right uk-link uk-link-muted" href="#">Forgot Password?</a>
-                        </div>
-                        <div class="uk-form-row uk-text-small">
-                            <a class="uk-float-right uk-link uk-width-1-1 uk-margin-top" href="#">Sign Up</a>
-                        </div>
-                    </form>
-        
+                    </div>
                 </div>
-
             </div>
         </div>
 </div>
@@ -114,6 +196,11 @@
     
     </div>
 
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-margin uk-text-center">
+            <h3 class="uk-card-title">Default</h3>
+            <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
 
 
 
@@ -125,4 +212,10 @@
 
 
 </body>
+</div><!--/div#page-wrapper-->
+<footer id="page-footer" class="uk-margin-top" uk-sticky>
+    <div class="uk-container uk-padding-small">
+        <p class="uk-text-small">copyright(c).</p>
+    </div>
+</footer><!--/footer#page-footer-->
 </html>
