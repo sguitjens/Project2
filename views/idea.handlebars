@@ -1,0 +1,35 @@
+<div>
+  <h1> Bring Your Idea to Life </h1>
+    <h2>I have an idea!</h2>
+
+    {{!-- {{#each veggies}}
+      {{#unless eaten}}
+        {{> veggies/veggie-block eaten=true}}
+      {{/unless}}
+    {{/each}}
+      --}}
+
+    <h2>I've got skilz, and I want to help!</h2>
+
+    {{!-- {{#each veggies}}
+      {{#if eaten}}
+        {{> veggies/veggie-block eaten=false}}
+      {{/if}}
+    {{/each}} --}}
+
+
+    <div>
+      <h2> Sign up: </h2>
+      <form class="create-form">
+
+      <div class="form-group">
+        <label for="idea" class="font-weight-bold"> Idea or skill </label>
+        <input type="text" id="idea" name="name">
+      </div>
+
+      <button type="submit" class="btn-danger btn-lg">Submit?</button>
+      </form>
+    </div>
+
+
+</div>
