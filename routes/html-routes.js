@@ -6,16 +6,15 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
   app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
+    // load the index page if the user is already logged in, I think
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/index");
     }
-    // res.sendFile(path.join(__dirname, "../public/signup.html"));
-    // had to comment out the above and replace it with this to get it to use handlebars
-    res.render("index", {});
+    res.render("login", {});
   });
 
   app.get("/login", function(req, res) {
+    console.log("REQUEST2", req);
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/members");
@@ -25,7 +24,7 @@ module.exports = function(app) {
   });
 
   app.get("/index", function(req, res) {
-    // render your contact.handlebars
+    // render index.handlebars
     res.render("index", {});
   });
 
