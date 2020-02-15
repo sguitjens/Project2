@@ -13,16 +13,9 @@ const config = require(__dirname + "/../config/config.json")[env];
 const db = {};
 
 // QUESTION: why is the database name defaulting to dev_database
+let sequelize = new Sequelize(config.database, config.username, config.password, {host: config.host, dialect: config.dialect});
 
-let sequelize;
-if (config.use_env_variable) {
-  var sequelize = new Sequelize(process.env[config.use_env_variable]);
-} else {
-  var sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
-
-fs
-  .readdirSync(__dirname)
+fs.readdirSync(__dirname)
   .filter(function(file) {
     return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })

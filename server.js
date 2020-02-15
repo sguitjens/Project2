@@ -2,16 +2,19 @@
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
-const methodOverride = require ("method-Override");
+const methodOverride = require ("method-override");
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
+
 // const passport = require ('passport');
 const util = require ('util');
 const GitHubStrategy = require ('passport-github2').Strategy;
 const partials = require('express-partials');
+
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 8080;
 const db = require("./models");
+
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
