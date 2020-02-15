@@ -1,5 +1,4 @@
-/*eslint prefer-const: "error"*/
-/*eslint-env es6*/
+//dependencies
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
