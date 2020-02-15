@@ -17,13 +17,13 @@ module.exports = function(sequelize, DataTypes) {
           len: [2]
       }
   },
-  password: {
-     type: DataTypes.STRING,
-     allowNull:false,
-     validate:{
-       len: [2]
-     }
-  },
+  // password: {
+  //    type: DataTypes.STRING,
+  //    allowNull:false,
+  //    validate:{
+  //      len: [2]
+  //    }
+  // },
   picture_url: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -1,4 +1,4 @@
-USE nodeapp_db;
+USE theLab_db;
 
 
 INSERT INTO Posts (id, body, groupLimit, authorEmail, createdAt, UpdatedAt) VALUES (1, 'I have this wonderful idea for an app', 5, 'jen-kim@bootcampstudent.edu', '2020-10-10 10:30:00', '2020-10-10 10:30:00');
@@ -9,4 +9,4 @@ INSERT INTO Posts (id, body, groupLimit, authorEmail, createdAt, UpdatedAt) VALU
 INSERT INTO Users (user_name) VALUES ('Mr.TWO');
 INSERT INTO Users (user_name) VALUES ('Ms.ONE');
 
-create database nodeapp_db;
+create database theLab_db;

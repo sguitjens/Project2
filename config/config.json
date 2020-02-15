@@ -4,7 +4,7 @@
   },
   "test": {
     "username": "root",
-    "password": "shadow11",
+    "password": null,
     "database": "nodeapp_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -12,5 +12,6 @@
   },
   "production": {
     "use_env_variable": "HEROKU_CONFIG" 
+    // "use_env_variable": "JAWSDB_URL"
   }
 }
