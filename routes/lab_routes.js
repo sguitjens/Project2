@@ -17,7 +17,7 @@ let transporter = nodemailer.createTransport({
     }
 });
 
-// Export these awesome routes
+// Export these routes
 module.exports = function (app) {
 
     // Get the root route

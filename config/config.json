@@ -1,17 +1,21 @@
 {
   "development": {
-    "use_env_variable": "MYSQL_CONFIG"
+    "username": "root",
+    "password": "shadow11",
+    "database": "theLab_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "nodeapp_db",
+    "password": "shadow11",
+    "database": "theLab_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "operatorsAliases": false
   },
   "production": {
-    "use_env_variable": "HEROKU_CONFIG" 
-    // "use_env_variable": "JAWSDB_URL"
+    "use_env_variable": "HEROKU_CONFIG"
   }
 }
