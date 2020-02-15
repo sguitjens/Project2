@@ -3,7 +3,7 @@
 const express = require("express");
 const session = require("express-session");
 const methodOverride = require ("method-override");
-const handlebars = require("express-handlebars");
+const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 
 // const passport = require ('passport');
@@ -18,8 +18,8 @@ const db = require("./models");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 
-const GITHUB_CLIENT_ID = "";
-const GITHUB_CLIENT_SECRET = "";
+const GITHUB_CLIENT_ID = "1abe7445a2c8ca972e71";
+const GITHUB_CLIENT_SECRET = "1e5bc4269f11fa66aef07b9c0a95c211933d13cb";
 
 
 //passport sesh setup
@@ -72,11 +72,11 @@ app.set("view engine", "handlebars");
 
 
 //importing routes
-var labRoutes = require("./routes/lab_routes.js/index.js.js")(app);
+var labRoutes = require("./routes/lab_routes.js")(app);
 
-var loginRoutes = require("./routes/login_routes.js/index.js.js")(app);
+var loginRoutes = require("./routes/login_routes.js")(app);
 
-var pageRoutes = require("./routes/pages_routes.js/index.js.js")(app);
+var pageRoutes = require("./routes/pages_routes.js")(app);
 
 //syncing database and listening 
 db.sequelize.sync().then(function() {
