@@ -14,21 +14,32 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
+    "express-partials": "0.1.0",
     "express-session": "^1.17.0",
     "jest": "^25.1.0",
+    "method-override": "3.0.0",
+    "mysql": "2.18.1",
     "mysql2": "^2.1.0",
+    "nodemail": "0.1.8",
     "passport": "^0.4.1",
+    "passport-github2": "0.1.11",
+    "passport-gitlab": "0.5.0",
+    "passport-gitlab2": "5.0.0",
     "passport-local": "^1.0.0",
+    "path": "0.12.7",
     "save": "^2.4.0",
-    "sequelize": "^5.21.4"
+    "sequelize": "^5.21.4",
+    "util": "^0.12.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "sequelize-cli": "^5.5.1"
   }
 }
