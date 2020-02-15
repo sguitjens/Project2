@@ -29,6 +29,11 @@ module.exports = function(app) {
     res.render("index", {});
   });
 
+  app.get("/profile", function(req, res) {
+    // render your contact.handlebars
+    res.render("profile", {});
+  });
+
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
