@@ -1,4 +1,5 @@
-//dependencies
+/*eslint prefer-const: "error"*/
+/*eslint-env es6*/
 // Requiring necessary npm packages
 const express = require("express");
 const session = require("express-session");
@@ -44,20 +45,16 @@ function(accessToken, refreshToken, profile, done) {
   });
 }
 ));
+
 // Creating express app and configuring middleware needed for authentication
 var app = express();
-app.use(partials());
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-app.use(methodOverride("_method"));
-
-
-//using bodyparser for post and put data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-// Initialize Passport!  
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static("public"));
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -70,6 +67,9 @@ app.use(express.static(__dirname + '/public'));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+// Requiring our routes
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 //importing routes
 var labRoutes = require("./routes/lab_routes.js")(app);
@@ -80,7 +80,11 @@ var pageRoutes = require("./routes/pages_routes.js")(app);
 
 //syncing database and listening 
 db.sequelize.sync().then(function() {
-    app.listen(PORT, function () {
-console.log("App listening this awesome PORT: " + PORT);
-    });
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
 });
