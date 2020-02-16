@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html style="font-family: 'Tomorrow', sans-serif;">
     <head>
-        <title>Project 2</title>
+        <title>theLab</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../assets/uikit/css/uikit.min.css" />
         <script src="../assets/uikit/js/uikit.min.js"></script>
         <script src="../assets/js/script.js"></script>
         <script src="../assets/uikit/js/uikit-icons.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="../assets/images/favicon-32x32.png" type="image/x-icon">
     </head>
-    <body>
+    
 
     <header>
 
         <!-- NAVBAR -->
             <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
             <nav class="uk-navbar-container" uk-navbar>
-                    <div class="uk-navbar-right">
+                    <div class="uk-navbar-left">
+                            <a class="uk-active"><a href="#"><img class="uk-margin-left" src="../assets/images/science-icon.png" width="50" height="50" alt=""></a></li>
+                            <a class="uk-navbar-item uk-logo" href="#" style="font-family: 'Tomorrow', sans-serif;font-size: 28px">theLab</a>
+                    </div>
+
+                    <div class="uk-navbar-right" >
                         <ul class="uk-navbar-nav">
-                                <li class="uk-active"><a href="#">Create</a></li>
-                                <li class="uk-active"><a href="#">Find</a></li>
+                                <li class="uk-active"><a href="#" style="font-family: 'Tomorrow', sans-serif;">Create</a></li>
+                                <li class="uk-active"><a href="#" style="font-family: 'Tomorrow', sans-serif;">Find</a></li>
                                 <!-- Login target for modal -->
-                                <li class="uk-active"><a href="#" uk-toggle="target: #login-modal">Login</a></li>
+                                <li class="uk-active"><a href="#" uk-toggle="target: #login-modal" style="font-family: 'Tomorrow', sans-serif;">Login</a></li>
                                 <!-- target for profile off canvas -->
                                 <li>
-                                        <a uk-toggle="target: #offcanvas-nav-primary">Profile</a>
+                                        <a uk-toggle="target: #offcanvas-nav-primary" style="font-family: 'Tomorrow', sans-serif;">Profile</a>
                                     <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true; flip: true">
                                             <div class="uk-offcanvas-bar uk-flex uk-flex-column">
                                                     <button class="uk-offcanvas-close" type="button" uk-close></button>
@@ -60,7 +67,7 @@
 
 <!-- MODAL for login -->
 
-<div class="uk-modal "id="login-modal" uk-modal="center: true" style="text-align: center">
+<div class="uk-modal "id="login-modal" uk-modal="center: true" style="text-align: center" >
         <div class="uk-modal-dialog uk-modal-body uk-width-1-2">
         <button class="uk-modal-close-full uk-close-large uk-vertical-align-middle" type="button" uk-close></button>
         <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade uk-padding-remove">
@@ -76,7 +83,7 @@
                                     </ul>
                                     <ul class="uk-switcher uk-margin">
                                         <li>
-                                            <h3 class="uk-card-title uk-text-center">Sign up!</h3>
+                                            <h3 class="uk-card-title uk-text-center" style="font-family: 'Tomorrow', sans-serif;">Sign up!</h3>
                                             <form>
                                                 <div class="uk-margin">
                                                     <div class="uk-inline uk-width-1-1">
@@ -108,7 +115,7 @@
                                             </form>
                                         </li>
                                         <li>
-                                            <h3 class="uk-card-title uk-text-center">Welcome back!</h3>
+                                            <h3 class="uk-card-title uk-text-center" style="font-family: 'Tomorrow', sans-serif;">Welcome back!</h3>
                                             <form>
                                                 <div class="uk-margin">
                                                     <div class="uk-inline uk-width-1-1">
@@ -161,7 +168,7 @@
         </div>
 </div>
 
-
+<body>
 <!-- SLIDESHOW -->
 
 <!-- div below sets min-height/max-height, animation, autoplay for slideshow and interval of 4s -->
@@ -169,25 +176,25 @@
 
         <ul class="uk-slideshow-items">
             <li>
-                <img src="../assets/images/vector3.jpg" alt=""  uk-cover>
-                <div class="uk-overlay uk-overlay uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                    <h3 class="uk-margin-remove">Sign Up</h3>
+                <img src="../assets/images/banner1.png" alt=""  uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove" style="font-family: 'Tomorrow', sans-serif;">Sign Up</h3>
                     <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </li>
             <li>
                 <a src="#">
-                <img src="../assets/images/vector1.jpg" alt="" uk-cover>
-                <div class="uk-overlay uk-overlay uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                        <h3 class="uk-margin-remove">Create Projects</h3>
+                <img src="../assets/images/banner2.png" alt="" uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                        <h3 class="uk-margin-remove" style="font-family: 'Tomorrow', sans-serif;">Create Projects</h3>
                         <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </a>
             </li>
             <li>
-                <img src="../assets/images/vector2.jpg" alt="" uk-cover>
-                <div class="uk-overlay uk-overlay uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                        <h3 class="uk-margin-remove">Contribute to Projects</h3>
+                <img src="../assets/images/banner3.png" alt="" uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-top uk-text-center uk-transition-slide-bottom">
+                        <h3 class="uk-margin-remove" style="font-family: 'Tomorrow', sans-serif;">Contribute to Projects</h3>
                         <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
             </li>
@@ -199,7 +206,7 @@
     </div>
 
     <div class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-margin uk-text-center">
-            <h3 class="uk-card-title">Default</h3>
+            <h3 class="uk-card-title" style="font-family: 'Tomorrow', sans-serif;">Default</h3>
             <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
 
