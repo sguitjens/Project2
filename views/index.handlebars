@@ -1,0 +1,173 @@
+<body>
+
+<hr class="uk-grid-divider" style="margin-top: 0px">
+
+
+<!-- MODAL for login -->
+
+<div class="uk-modal "id="login-modal" uk-modal="center: true" style="text-align: center" >
+        <div class="uk-modal-dialog uk-modal-body uk-width-1-2">
+        <button class="uk-modal-close-full uk-close-large uk-vertical-align-middle" type="button" uk-close></button>
+        <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade uk-padding-remove">
+                <div class="uk-width-1-1">
+                    <div class="uk-container">
+                        <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+                            <div class="uk-width-1-1@m">
+                                <form class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+                                    <ul class="uk-tab uk-flex-center" uk-grid uk-switcher="animation: uk-animation-fade">
+                                        <li><a href="#">Sign Up</a></li>
+                                        <li><a href="#">Log In</a></li>
+                                        <li class="uk-hidden">Forgot Password?</li>
+                                    </ul>
+                                    <ul class="uk-switcher uk-margin">
+                                        <li>
+                                            <h3 class="uk-card-title uk-text-center" style="font-family: 'Tomorrow', sans-serif;">Sign up!</h3>
+                                            <form>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                                        <input class="uk-input uk-form-large uk-border-pill" type="text" placeholder="First and last name">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                        <input class="uk-input uk-form-large uk-border-pill" type="text" placeholder="Email address">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                        <input class="uk-input uk-form-large uk-border-pill" type="password" placeholder="Set a password">	
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+                                                    <label><input class="uk-checkbox uk-border-circle" type="checkbox"> I agree the Terms and Conditions.</label>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-border-pill">Login</button>
+                                                </div>
+                                                <div class="uk-text-small uk-text-center">
+                                                    Already have an account? <a href="#" uk-switcher-item="1">Log in</a>
+                                                </div>
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <h3 class="uk-card-title uk-text-center" style="font-family: 'Tomorrow', sans-serif;">Welcome back!</h3>
+                                            <form>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                        <input class="uk-input uk-form-large uk-border-pill" type="text" placeholder="Email address">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                        <input class="uk-input uk-form-large uk-border-pill" type="password" placeholder="Password">	
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin uk-text-right@s uk-text-center uk-text-small">
+                                                    <a href="#" uk-switcher-item="2">Forgot Password?</a>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-border-pill">Login</button>
+                                                </div>
+                                                <div class="uk-text-small uk-text-center">
+                                                    Not registered? <a href="#" uk-switcher-item="0">Create an account</a>
+                                                </div>
+                                            </form>
+                                        </li>
+                                        <li>
+                                            <h3 class="uk-card-title uk-text-center">Forgot your password?</h3>
+                                            <p class="uk-text-center uk-width-medium@s uk-margin-auto">Enter your email address and we will send you a link to reset your password.</p>
+                                            <form>
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                        <input class="uk-input uk-form-large " type="text" placeholder="Email address">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-margin">
+                                                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1">Send Email</button>
+                                                </div>
+                                                <div class="uk-text-small uk-text-center">
+                                                    <a href="#" uk-switcher-item="1">Back to login</a>
+                                                </div>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-form-row uk-margin-bottom">
+                            <input class="uk-width-1-1 uk-form-large uk-border-pill" type="text" placeholder="Password">
+                        </div>
+                        <div class="uk-form-row uk-margin-bottom">
+                        <a class="uk-width-1-1 uk-button uk-button-primary uk-button-large uk-border-pill" href="#">Login</a>
+                        </div>
+                        <div class="uk-form-row uk-text-small">
+                            <label class="uk-float-left"><input type="checkbox"> Remember Me</label>
+                            <a class="uk-float-right uk-link uk-link-muted" href="#">Forgot Password?</a>
+                        </div>
+                        <div class="uk-form-row uk-text-small">
+                            <a class="uk-float-right uk-link uk-width-1-1 uk-margin-top" href="#">Sign Up</a>
+                        </div>
+                    </form>
+        
+                </div>
+
+            </div>
+        </div>
+</div>
+
+<body>
+<!-- SLIDESHOW -->
+
+<!-- div below sets min-height/max-height, animation, autoplay for slideshow and interval of 4s -->
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="min-height: 300; max-height: 400; animation: push; autoplay: true;autoplay-interval: 4000">
+
+        <ul class="uk-slideshow-items">
+            <li>
+                <img src="../assets/images/blue-chem-set.png" alt=""  uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                    <h3 class="uk-margin-remove" style="font-family: 'Tomorrow', sans-serif;">Get Started</h3>
+                    <p class="uk-margin-remove">Be sure to sign up to take full advantage of {theLab}</p>
+                </div>
+            </li>
+            <li>
+                <a src="#">
+                <img src="../assets/images/red-chem-comp.png" alt="" uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                        <h3 class="uk-margin-remove" style="font-family: 'Tomorrow', sans-serif;">Create</h3>
+                        <p class="uk-margin-remove">Need help with a project? Create a project post to get contributors</p>
+                    </div>
+              </a>
+            </li>
+            <li>
+                <img src="../assets/images/banner1.png" alt="" uk-cover>
+                <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
+                        <h3 class="uk-margin-remove" style="font-family: 'Tomorrow', sans-serif;">Contribute</h3>
+                        <p class="uk-margin-remove">Find projects to apply your skill-set to </p>
+                    </div>
+            </li>
+        </ul>
+    
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+    
+    </div>
+
+    <!-- ABOUT -->
+
+    <div class="uk-card uk-card-default uk-card-body uk-width-1-1 uk-margin uk-text-center">
+            <h3 class="uk-card-title" style="font-family: 'Tomorrow', sans-serif;">What We're About</h3>
+            <p>The world of web development and coding is a complex and ever changing world. </p>
+            <p>How can we change that?</p>
+            <p>Here at {theLab}, we bring fellow developers together to lend each other a helping hand.</p>
+            
+        </div>
+
+
+
+</body>
