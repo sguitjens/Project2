@@ -1,7 +1,4 @@
-module.exports = function(req, res, next) {
-  if (req.user) {
-    return next();
-  }
-
-  return res.redirect("/");
+module.exports = {
+  db: "mysql://username:password@url:port/db",
+  db_dev: "mysql://localhost2701/theLab_db",
 };
