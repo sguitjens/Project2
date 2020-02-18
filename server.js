@@ -33,9 +33,9 @@ passport.deserializeUser(function(obj, done) {
 });
 
 passport.use(new GitHubStrategy({
-  clientID: "1abe7445a2c8ca972e71",
-  clientSecret: "1e5bc4269f11fa66aef07b9c0a95c211933d13cb",
-  callbackURL: "https://localhost:8080/auth/login/callback"
+  clientID: GITHUB_CLIENT_ID,
+  clientSecret: GITHUB_CLIENT_SECRET,
+  callbackURL: ""
 },
 function(accessToken, refreshToken, profile, done) {
 
@@ -70,9 +70,9 @@ app.use(express.static(__dirname + '/public'));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// // Requiring our routes
-// require("./routes/html-routes.js")(app);
-// require("./routes/api-routes.js")(app);
+// Requiring our routes
+require("./routes/html-routes.js")(app);
+require("./routes/api-routes.js")(app);
 
 //importing routes
 var labRoutes = require("./routes/lab_routes.js")(app);
@@ -81,9 +81,9 @@ var loginRoutes = require("./routes/login_routes.js")(app);
 
 var pageRoutes = require("./routes/pages_routes.js")(app);
 
-//syncing database and listening 
+
 db.sequelize.sync().then(function() {
     app.listen(PORT, function () {
-console.log("App listening on PORT: " + PORT);
+console.log("App listening this awesome PORT: " + PORT);
     });
 });
