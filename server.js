@@ -1,89 +1,47 @@
-/*eslint prefer-const: "error"*/
-/*eslint-env es6*/
-// Requiring necessary npm packages
-const express = require("express");
-const session = require("express-session");
-const methodOverride = require ("method-override");
-const exphbs = require("express-handlebars");
-const bodyParser = require("body-parser");
+const routes = require('./routes')
+const express = require('express')
+const app = express()
+const user = require('./routes/user')
+const db = require('./models')
+const http = require('http')
+const passport = require('passport')
+const passportConfig = require('./config/passport')
+const home = require('./routes/home')
+const application = require('./routes/application')
 
-// const passport = require ('passport');
-const util = require ('util');
-const GitHubStrategy = require ('passport-github2').Strategy;
-const partials = require('express-partials');
+SALT_WORK_FACTOR = 12; 
 
-// Setting up port and requiring models for syncing
-const PORT = process.env.PORT || 8080;
-const db = require("./models");
+app.use('/public', express.static(__dirname+'/public'));
+app.set('views', __dirname + '/views')
+app.set('port', process.env.PORT || 8080)
 
-// Requiring passport as we've configured it
-const passport = require("./config/passport");
+app.use(express.urlencoded())
+app.use(express.bodyParser())
+app.use(express.cookieParser())
+app.use(express.session({ secret: 'goatjkformakeberttersecurity'}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(app.router)
 
-const GITHUB_CLIENT_ID = "1abe7445a2c8ca972e71";
-const GITHUB_CLIENT_SECRET = "1e5bc4269f11fa66aef07b9c0a95c211933d13cb";
-
-
-//passport sesh setup
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
-
-passport.use(new GitHubStrategy({
-  clientID: GITHUB_CLIENT_ID,
-  clientSecret: GITHUB_CLIENT_SECRET,
-  callbackURL: ""
-},
-function(accessToken, refreshToken, profile, done) {
-
-  process.nextTick(function () {
-    
-    return done(null, profile);
-  });
+if ('development' === app.get('env')) {
+    app.use(express.errorHandler())
 }
-));
 
-// Creating express app and configuring middleware needed for authentication
-var app = express();
-app.use(partials());
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
-app.use(methodOverride("_method"));
-//using bodyparser for post and put data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
-
-// Initialize Passport!
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-// Links the static content (i.e. css and images)
-app.use(express.static(__dirname + '/public'));
-// 
-
-// Set the engine up for handlebars
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-// Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
-
-//importing routes
-var labRoutes = require("./routes/lab_routes.js")(app);
-
-var loginRoutes = require("./routes/login_routes.js")(app);
-
-var pageRoutes = require("./routes/pages_routes.js")(app);
-
+app.get('/, routes.index')
+app.get('/home', application.IsAuthenticated, home.homepage)
+app.post('/authenticate',
+passport.authenticate('local', {
+    successRedirect: '/home', 
+    failureRedirect: '/'
+})
+)
+app.get('/logout', application.destroySession)
+app.get('/signup', user.signUp)
+app.post('/register', user.register)
 
 db.sequelize.sync().then(function() {
     app.listen(PORT, function () {
 console.log("App listening this awesome PORT: " + PORT);
     });
 });
+
