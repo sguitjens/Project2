@@ -1,45 +1,36 @@
-/*eslint prefer-const: "error"*/
-/*eslint-env es6*/
-const bcrypt = require("bcryptjs");
-
+const bcrypt = require('bcrypt-node.js')
 module.exports = function(sequelize, DataTypes) {
-  const User = sequelize.define("User", {
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
+    const User = sequelize.define('User', {
+        username: {type: DataTypes.STRING, unique: true, validate: {notNull: true, notEmpty: true}}
+        password: {type: DataTypes.STRING, validate: {notNull: true, notEmpty: true}}
     },
-    // password: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
-    firstName: {
-      type: DataTypes.STRING,
-      allowNull: false
+    {
+        classMethods: {
+            validPassword: function(password, passwd, done, user){
+                bycrpt.compare(password, passwd, function(err, isMatch){
+                    if (err) console.log(err)
+                    if(isMatch) {
+                        return done(null, user)
+                    } else {
+                        return done(null, false)
+                    }
+                });
+            }
+        }
     },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false
+    {
+        dialect: 'mysql'
     }
-  });
-
-  User.prototype.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
-  };
-
-  User.addHook("beforeCreate", function(user) {
-    user.password = bcrypt.hashSync(
-      user.password,
-      bcrypt.genSaltSync(10),
-      null
-    );
-  });
-  return User;
-};
+);
+user.hook('beforeCreate', function(user, fn){
+    var salt = bycrpt.genSalt(SALT_WORK_FACTOR, function(err, salt){
+        return salt
+    });
+    bycrpt.hash(user.password, salt, null, function(err, hash){
+        if(err) return next(err);
+        user.password = hash;
+        return fn(null,user)
+    });
+})
+return User
+}
