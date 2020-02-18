@@ -1,9 +1,33 @@
 const bcrypt = require('bcrypt-node.js')
 module.exports = function(sequelize, DataTypes) {
-    const User = sequelize.define('User', {
-        username: {type: DataTypes.STRING, unique: true, validate: {notNull: true, notEmpty: true}}
-        password: {type: DataTypes.STRING, validate: {notNull: true, notEmpty: true}}
-    },
+    var User = sequelize.define("User", {
+      // The email cannot be null, and must be a proper email before creation
+      username: {
+          type: DataTypes.STRING, 
+          unique: true,
+          validate: {
+              notNull: true, 
+              notEmpty: true
+          }
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true
+        }
+      },
+      // The password cannot be null
+      password: {
+        type: DataTypes.STRING,
+        unique: true, 
+        validate: {
+            notNull: true, 
+            notEmpty: true
+        }
+      },
+
     {
         classMethods: {
             validPassword: function(password, passwd, done, user){
@@ -16,12 +40,12 @@ module.exports = function(sequelize, DataTypes) {
                     }
                 });
             }
-        }
+        },
     },
     {
         dialect: 'mysql'
     }
-);
+    });
 user.hook('beforeCreate', function(user, fn){
     var salt = bycrpt.genSalt(SALT_WORK_FACTOR, function(err, salt){
         return salt
