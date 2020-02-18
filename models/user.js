@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
           isEmail: true
         }
       },
-      // The password cannot be null
+    
       password: {
         type: DataTypes.STRING,
         unique: true, 
@@ -45,7 +45,7 @@ module.exports = function(sequelize, DataTypes) {
     {
         dialect: 'mysql'
     }
-    });
+});
 user.hook('beforeCreate', function(user, fn){
     var salt = bycrpt.genSalt(SALT_WORK_FACTOR, function(err, salt){
         return salt
