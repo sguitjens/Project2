@@ -70,9 +70,14 @@ app.use(express.static(__dirname + '/public'));
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+app.get('/', function (req, res) {
+  res.render('index');
+});
+
+
 // Requiring our routes
-require("./routes/html-routes.js")(app);
-require("./routes/api-routes.js")(app);
+// require("./routes/html-routes.js")(app);
+// require("./routes/api-routes.js")(app);
 
 //importing routes
 var labRoutes = require("./routes/lab_routes.js")(app);

@@ -3,6 +3,11 @@ var db = require("../models");
 var passport = require('passport');
 // page routes
 module.exports = function (app) {
+    app.get("/index", function(req, res) {
+        console.log("HITTING INDEX ROUTE")
+        res.render("index", {});
+    });
+
     app.get('/past', function (req, res) {
         db.Post.findAll({
             order: [

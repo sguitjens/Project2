@@ -7,10 +7,11 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
   app.get("/", function(req, res) {
     // load the index page if the user exists so they can log in
-    if (req.user) {
-      res.redirect("/index");
-    }
-    res.render("login", {});
+    // if (req.user) {
+    //   res.redirect("/index");
+    // }
+    console.log("RENDERING RES", res.body)
+    res.render("index", {});
   });
 
   app.get("/login", function(req, res) {
